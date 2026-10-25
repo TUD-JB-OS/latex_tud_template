@@ -4,3 +4,13 @@
 _build
 
 *.pdf
+template.aux
+template.bbl
+template.bcf
+template.fdb_latexmk
+template.fls
+template.log
+template.out
+template.run.xml
+template.synctex.gz
+template.toc
