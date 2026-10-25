@@ -1,0 +1,27 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: 2d37e930-95e0-4f59-8003-1860aadbc335
+  title: My greatest title
+  date: 2026-10-25
+  # description:
+  # keywords: []
+  authors: Freek
+  # github:
+  # To autogenerate a Table of Contents, run "myst init --write-toc"
+  toc:
+    - file: index.md
+    - file: twee.md
+
+  exports: 
+    - id: some_pdf
+      format: pdf
+      output: export/some_pdf.pdf
+      cover: figures/cover.jpg
+      template: ./
+
+site:
+  template: book-theme
+  # options:
+  #   favicon: favicon.ico
+  #   logo: site_logo.png

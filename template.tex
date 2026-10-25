@@ -1,0 +1,83 @@
+\documentclass{tudelft-report}
+
+
+% const latexPath = filePath.replace(/\\/g, '/');
+
+%% Set up the bibliography
+\usepackage{biblatex}
+\addbibresource{report.bib}
+
+%% Additional packages and commands
+\usepackage{parskip}
+\setlist{itemsep=-2pt} % Reducing white space in lists slightly
+\renewcommand{\deg}{\si{\degree}\xspace} % Use \deg easily, everywhere
+
+%% ----------------------------------------------------------------------
+%%    Begin of document + Frontmatter (Roman page numbering)
+%% ----------------------------------------------------------------------
+
+\begin{document}
+
+\frontmatter
+
+%% Define the main parameters
+\title{[-doc.title-]}
+\subtitle{[-doc.subtitle-]}
+
+[# for author in doc.authors -#]
+\author[
+[#- if author.orcid #] \orcidlink{[- author.orcid -]} [# endif -#]
+[-- author.affiliations|join(", ", "index") --]
+[#- if author.corresponding #] \Letter[# endif -#]
+]{[-- author.name --]}
+[# endfor #]
+
+\subject{AB1234: Optional Course Name} % Cover only
+[# for affiliation in doc.affiliations #]
+\affil[[-affiliation.index-]]{[-affiliation.value.name-]}
+[# endfor #]
+[# if options.cover #]
+\coverimage{[- options.cover | replace('\\', '/') -]}
+[# endif #]
+% \coverimage{[#- if doc.cover #][- doc.cover -][#- else #]figures/cover.jpg[#- endif -#]} % Aspect ratio of 2:3 (portrait) recommended
+\definecolor{title}{HTML}{4884d6} % Color for cover title
+
+\makecover
+
+% \input{frontmatter/title-report}
+% \input{frontmatter/preface}
+[# if parts.abstract #]
+\begin{abstract}
+[-parts.abstract-]
+\end{abstract}
+[# endif #]
+
+\tableofcontents
+%\listoffigures
+%\listoftables
+
+% \input{frontmatter/nomenclature}
+
+%% ----------------------------------------------------------------------
+%%    Mainmatter (Arabic page numbering)
+%% ----------------------------------------------------------------------
+
+\mainmatter
+
+
+[-CONTENT-]
+
+%% Prevent urls running into margins in bibliography
+% \setcounter{biburlnumpenalty}{7000}
+% \setcounter{biburllcpenalty}{7000}
+% \setcounter{biburlucpenalty}{7000}
+
+%% Add bibliography
+% \printbibliography[heading=bibintoc,title=References]
+
+%% ----------------------------------------------------------------------
+%%    Appendix (Letters for chapters)
+%% ----------------------------------------------------------------------
+
+
+\end{document}

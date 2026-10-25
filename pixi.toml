@@ -1,0 +1,11 @@
+[workspace]
+authors = ["FreekPols <c.f.j.pols@tudelft.nl>"]
+channels = ["conda-forge"]
+name = "latex_tud_template"
+platforms = ["win-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+mystmd = ">=1.11.0,<2"
