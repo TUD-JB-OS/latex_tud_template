@@ -2,7 +2,7 @@
 version: 1
 project:
   id: 2d37e930-95e0-4f59-8003-1860aadbc335
-  title: My greatest title
+  title: My great project
   date: 2026-10-25
   # description:
   # keywords: []
@@ -19,6 +19,7 @@ project:
       output: export/some_pdf.pdf
       cover: figures/cover.jpg
       template: ./
+      projecttitle: My great project
 
 site:
   template: book-theme

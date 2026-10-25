@@ -20,9 +20,9 @@ files:
   - template.tex
   - tudelft-report.cls
   - figures/logo-white.pdf
+  - myst.yml
 
-
-doc:
+doc: 
   - id: title
     required: true
   - id: subtitle
@@ -36,6 +36,10 @@ doc:
   - id: keywords
   - id: bibliography
 options:
+  - id: projecttitle
+    type: string
+    description: |
+      Title of the project, used for the title page and cover page. If not set, the document title will be used.
   - id: link
     type: string
     description: |

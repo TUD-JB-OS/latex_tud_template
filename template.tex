@@ -12,6 +12,9 @@
 \setlist{itemsep=-2pt} % Reducing white space in lists slightly
 \renewcommand{\deg}{\si{\degree}\xspace} % Use \deg easily, everywhere
 
+[- IMPORTS -]
+
+
 %% ----------------------------------------------------------------------
 %%    Begin of document + Frontmatter (Roman page numbering)
 %% ----------------------------------------------------------------------
@@ -21,14 +24,28 @@
 \frontmatter
 
 %% Define the main parameters
-\title{[-doc.title-]}
-\subtitle{[-doc.subtitle-]}
 
-[# for author in doc.authors -#]
+% Projecttitel: [- project.title -]
+% Documenttitel: [- doc.title -]
+
+[# if options.projecttitle #]
+  \title{[-options.projecttitle-]},
+[# elif doc.title #]
+  \title{[-doc.title-]},
+[# endif #]
+
+
+[# if project.subtitle #]
+  \subtitle: "[-project.subtitle-]",
+[# elif doc.subtitle #]
+  \subtitle: "[-doc.subtitle-]",
+[# endif #]
+
+[# for author in project.authors #]
 \author[
-[#- if author.orcid #] \orcidlink{[- author.orcid -]} [# endif -#]
+[#- if author.orcid #] \orcidlink{[- author.orcid -]} [# endif #]
 [-- author.affiliations|join(", ", "index") --]
-[#- if author.corresponding #] \Letter[# endif -#]
+[#- if author.corresponding #] \Letter[# endif #]
 ]{[-- author.name --]}
 [# endfor #]
 
