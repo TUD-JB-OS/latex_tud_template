@@ -15,6 +15,7 @@
 [- IMPORTS -]
 
 
+
 %% ----------------------------------------------------------------------
 %%    Begin of document + Frontmatter (Roman page numbering)
 %% ----------------------------------------------------------------------
@@ -41,15 +42,16 @@
   \subtitle: "[-doc.subtitle-]",
 [# endif #]
 
-[# for author in project.authors #]
-\author[
-[#- if author.orcid #] \orcidlink{[- author.orcid -]} [# endif #]
-[-- author.affiliations|join(", ", "index") --]
-[#- if author.corresponding #] \Letter[# endif #]
-]{[-- author.name --]}
-[# endfor #]
 
-\subject{AB1234: Optional Course Name} % Cover only
+\author{\textsc{
+[#- for author in doc.authors #]
+  [#- if not loop.first #] and [# endif #][-author.name-][# if not loop.last and not loop.first #], [# endif #]
+[#- endfor -#]
+}}
+
+
+% \subject{AB1234: Optional Course Name} % Cover only
+
 [# for affiliation in doc.affiliations #]
 \affil[[-affiliation.index-]]{[-affiliation.value.name-]}
 [# endfor #]

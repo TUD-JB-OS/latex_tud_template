@@ -6,12 +6,16 @@ project:
   date: 2026-10-25
   # description:
   # keywords: []
-  authors: Freek
+  authors: 
+    - Freek Pols
+    - Erik Janssen
   # github:
   # To autogenerate a Table of Contents, run "myst init --write-toc"
   toc:
     - file: index.md
     - file: twee.md
+    - file: drie.md
+      
 
   exports: 
     - id: some_pdf
@@ -20,6 +24,13 @@ project:
       cover: figures/cover.jpg
       template: ./
       projecttitle: My great project
+      articles: 
+        - file: index.md
+        - file: twee.md
+          level: 0
+        - file: drie.md
+          level: 0
+
 
 site:
   template: book-theme
