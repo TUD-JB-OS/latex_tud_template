@@ -19,7 +19,7 @@ github: https://github.com/TUD-JB-OS/latex_template
 files:
   - template.tex
   - tudelft-report.cls
-  - figures/logo-white.pdf
+  - figures/logo-white.csv
   - myst.yml
 
 doc: 
